@@ -22,15 +22,20 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void save() {
 
+
+
+    }
+
+    public void save100() {
         for (int i=0; i<10; ++i) {
             List<Item> itemList = new ArrayList<>();
             for (int j=i*10; j<(i+1)*10; ++j) {
-                Item item = new Item("item" + j, "name" + j);
+                Item item = new Item( "name" + j);
                 itemList.add(item);
             }
             itemRepository.saveAll(itemList);
 
-            Member member = new Member("member" + i,  "name" + i, itemList);
+            Member member = new Member("name" + i, itemList);
             memberRepository.save(member);
         }
 

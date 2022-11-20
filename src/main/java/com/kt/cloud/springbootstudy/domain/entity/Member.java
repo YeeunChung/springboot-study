@@ -6,24 +6,28 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Member {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Item> itemList = new ArrayList<>();
 
-    public Member(String id, String name) {
-        this.id = id;
+    public Member(String name) {
         this.name = name;
+    }
+
+    public Member(String name, List<Item> itemList) {
+        this.name = name;
+        this.itemList = itemList;
     }
 
 }
