@@ -1,4 +1,4 @@
-package com.kt.cloud.springbootstudy.domain.entity;
+package com.kt.cloud.springbootstudy.domain.entity.onetomany;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,8 +10,6 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Item {
 
     @Id

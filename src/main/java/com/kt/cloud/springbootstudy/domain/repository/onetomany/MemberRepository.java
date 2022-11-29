@@ -1,6 +1,6 @@
-package com.kt.cloud.springbootstudy.domain.repository;
+package com.kt.cloud.springbootstudy.domain.repository.onetomany;
 
-import com.kt.cloud.springbootstudy.domain.entity.Member;
+import com.kt.cloud.springbootstudy.domain.entity.onetomany.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

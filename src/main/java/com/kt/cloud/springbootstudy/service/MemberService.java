@@ -1,6 +1,6 @@
 package com.kt.cloud.springbootstudy.service;
 
-import com.kt.cloud.springbootstudy.domain.entity.Member;
+import com.kt.cloud.springbootstudy.domain.entity.onetomany.Member;
 
 import java.util.List;
 

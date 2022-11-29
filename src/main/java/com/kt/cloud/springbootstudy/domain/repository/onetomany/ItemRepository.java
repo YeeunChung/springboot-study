@@ -1,6 +1,6 @@
-package com.kt.cloud.springbootstudy.domain.repository;
+package com.kt.cloud.springbootstudy.domain.repository.onetomany;
 
-import com.kt.cloud.springbootstudy.domain.entity.Item;
+import com.kt.cloud.springbootstudy.domain.entity.onetomany.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

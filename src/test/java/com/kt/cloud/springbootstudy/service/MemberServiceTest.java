@@ -1,19 +1,24 @@
 package com.kt.cloud.springbootstudy.service;
 
-import com.kt.cloud.springbootstudy.domain.entity.Member;
-import com.kt.cloud.springbootstudy.domain.repository.MemberRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.kt.cloud.springbootstudy.domain.entity.manytoone.Book;
+import com.kt.cloud.springbootstudy.domain.entity.manytoone.Library;
+import com.kt.cloud.springbootstudy.domain.entity.onetomany.Item;
+import com.kt.cloud.springbootstudy.domain.entity.onetomany.Member;
+import com.kt.cloud.springbootstudy.domain.repository.manytoone.BookRepository;
+import com.kt.cloud.springbootstudy.domain.repository.manytoone.LibraryRepository;
+import com.kt.cloud.springbootstudy.domain.repository.onetomany.ItemRepository;
+import com.kt.cloud.springbootstudy.domain.repository.onetomany.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
-@Slf4j
 //@RequiredArgsConstructor
 class MemberServiceTest {
 
@@ -21,6 +26,12 @@ class MemberServiceTest {
     MemberService memberService;
     @Autowired
     MemberRepository memberRepository;
+    @Autowired
+    ItemRepository itemRepository;
+    @Autowired
+    LibraryRepository libraryRepository;
+    @Autowired
+    BookRepository bookRepository;
 
     @DisplayName("N+1 문제 발생 테스트")
     @Test
@@ -38,15 +49,44 @@ class MemberServiceTest {
     @Test
     void memberIdAutoGenerateTest() {
         // given
-        Member member = new Member();
-        member.setName("member1");
+        Member member = new Member("member1");
 
         // when
         memberRepository.save(member);
-        log.info(String.valueOf(member));
+        System.out.println(member);
 
         // then
         Assertions.assertThat(member.getId()).isNotNull();
+    }
+
+    @DisplayName("연관 관계 테스트 - OneToMany")
+    @Test
+    void relationshipOneToManyTest() {
+        // given
+        Item item = new Item("item1");
+        itemRepository.save(item);
+
+        // when
+        Member member = new Member("member1");
+        member.setItemList(new ArrayList<>(Arrays.asList(item)));
+        memberRepository.save(member);
+
+        // then
+
+    }
+
+    @DisplayName("연관 관계 테스트 - ManyToOne")
+    @Test
+    void relationshipManyToOneTest() {
+        // given
+        Library library = new Library("library1");
+        libraryRepository.save(library);
+
+        // when
+        Book book = new Book("book1", library);
+        bookRepository.save(book);
+
+        // then
     }
 
 }

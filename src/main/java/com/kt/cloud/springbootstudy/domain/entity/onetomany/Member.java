@@ -1,7 +1,6 @@
-package com.kt.cloud.springbootstudy.domain.entity;
+package com.kt.cloud.springbootstudy.domain.entity.onetomany;
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
