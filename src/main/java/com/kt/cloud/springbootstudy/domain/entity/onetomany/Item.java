@@ -13,8 +13,9 @@ import java.util.UUID;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    private String id;
     private String name;
 //    @ManyToOne(fetch = FetchType.EAGER)
 //    @JoinColumn(name = "member_id")

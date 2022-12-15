@@ -8,6 +8,7 @@ import com.kt.cloud.springbootstudy.domain.repository.manytoone.BookRepository;
 import com.kt.cloud.springbootstudy.domain.repository.manytoone.LibraryRepository;
 import com.kt.cloud.springbootstudy.domain.repository.onetomany.ItemRepository;
 import com.kt.cloud.springbootstudy.domain.repository.onetomany.MemberRepository;
+import com.kt.cloud.springbootstudy.service.onetomany.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,8 +56,12 @@ class MemberServiceTest {
         memberRepository.save(member);
         System.out.println(member);
 
+        Member member1 = memberRepository.findById(member.getId()).get(); // findById 써보기
+        System.out.println(member1);
+
         // then
         Assertions.assertThat(member.getId()).isNotNull();
+        Assertions.assertThat(member1.getId()).isEqualTo(member.getId());
     }
 
     @DisplayName("연관 관계 테스트 - OneToMany")

@@ -1,4 +1,4 @@
-package com.kt.cloud.springbootstudy.service;
+package com.kt.cloud.springbootstudy.service.onetomany;
 
 import com.kt.cloud.springbootstudy.domain.entity.onetomany.Member;
 

@@ -1,9 +1,10 @@
-package com.kt.cloud.springbootstudy.service;
+package com.kt.cloud.springbootstudy.service.onetomany;
 
 import com.kt.cloud.springbootstudy.domain.entity.onetomany.Item;
 import com.kt.cloud.springbootstudy.domain.entity.onetomany.Member;
 import com.kt.cloud.springbootstudy.domain.repository.onetomany.ItemRepository;
 import com.kt.cloud.springbootstudy.domain.repository.onetomany.MemberRepository;
+import com.kt.cloud.springbootstudy.service.onetomany.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

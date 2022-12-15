@@ -1,6 +1,7 @@
 package com.kt.cloud.springbootstudy.domain.entity.onetomany;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,8 +15,9 @@ import java.util.UUID;
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    private String id;
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
     private List<Item> itemList = new ArrayList<>();
