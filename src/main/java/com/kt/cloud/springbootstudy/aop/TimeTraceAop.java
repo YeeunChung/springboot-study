@@ -16,7 +16,6 @@ public class TimeTraceAop {
         System.out.println("START: " + joinPoint.toString());
 
         try {
-            System.out.println("try test");
             return joinPoint.proceed();
         } finally {
             long finish = System.currentTimeMillis();

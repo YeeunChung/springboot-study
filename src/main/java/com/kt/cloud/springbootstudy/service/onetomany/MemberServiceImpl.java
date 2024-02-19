@@ -21,10 +21,11 @@ public class MemberServiceImpl implements MemberService {
     private final ItemRepository itemRepository;
 
     @Override
-    public void save() {
+    public void save(String name) {
+        Member member = new Member(name);
+        memberRepository.save(member);
 
-
-
+        log.info("Member 저장 성공: " + name);
     }
 
     public void save100() {
@@ -41,6 +42,11 @@ public class MemberServiceImpl implements MemberService {
         }
 
         log.info("저장 성공");
+    }
+
+    @Override
+    public Member findMember(String name) {
+        return memberRepository.findByName(name);
     }
 
     @Override

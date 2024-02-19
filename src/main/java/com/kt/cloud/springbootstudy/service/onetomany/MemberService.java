@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface MemberService {
 
-    void save();
+    void save(String name);
     void save100();
+    Member findMember(String name);
     List<Member> findAllMembers();
 
 }

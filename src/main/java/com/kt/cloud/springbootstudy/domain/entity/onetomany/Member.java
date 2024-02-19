@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,6 +22,7 @@ public class Member {
     private String id;
     private String name;
     @OneToMany(fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Item> itemList = new ArrayList<>();
 
     public Member(String name) {
