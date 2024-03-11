@@ -29,6 +29,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.h2database/h2
     implementation group: 'com.h2database', name: 'h2', version: '1.3.148'
+
+    // https://mvnrepository.com/artifact/org.fluentd/fluent-logger
+    implementation group: 'org.fluentd', name: 'fluent-logger', version: '0.3.2'
 }
 
 tasks.named('test') {

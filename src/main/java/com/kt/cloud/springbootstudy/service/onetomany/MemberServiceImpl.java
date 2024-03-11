@@ -7,10 +7,14 @@ import com.kt.cloud.springbootstudy.domain.repository.onetomany.MemberRepository
 import com.kt.cloud.springbootstudy.service.onetomany.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.fluentd.logger.FluentLogger;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +23,7 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
+    private static final FluentLogger LOG = FluentLogger.getLogger("app");
 
     @Override
     public void save(String name) {
@@ -26,6 +31,11 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.save(member);
 
         log.info("Member 저장 성공: " + name);
+
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("insert", name);
+        LOG.log("follow", data);
+        LOG.close();
     }
 
     public void save100() {
@@ -46,6 +56,10 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member findMember(String name) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("find", name);
+        LOG.log("follow", data);
+        LOG.close();
         return memberRepository.findByName(name);
     }
 
