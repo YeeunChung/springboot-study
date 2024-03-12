@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
-    private static final FluentLogger LOG = FluentLogger.getLogger("app");
+    private static FluentLogger LOG = FluentLogger.getLogger("app");
 
     @Override
     public void save(String name) {
