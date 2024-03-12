@@ -1,0 +1,12 @@
+logging:
+  pattern:
+    console: "%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n"
+    file: "%-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n"
+  file:
+    name: /var/log/springboot-study/study.log
+  level:
+    com.kt.dns.dnsbackend: info
+  logback:
+    rollingpolicy:
+      max-history: 60
+      max-file-size: 20MB
