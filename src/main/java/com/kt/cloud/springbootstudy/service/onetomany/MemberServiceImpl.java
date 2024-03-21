@@ -48,7 +48,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member findMember(String name) {
-        Map<String, Object> data = new HashMap<String, Object>();
+        log.info("Member 조회: " + name);
         return memberRepository.findByName(name);
     }
 
